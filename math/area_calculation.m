@@ -1,0 +1,13 @@
+
+function [A,Din,Dout] = area_calculation(comb_st,can,hCog)
+    Dout = interp1([comb_st.zTop(can), comb_st.zBot(can)], ...
+                   [comb_st.dTop(can), comb_st.dBotm(can)],... 
+                   hCog);
+    Din  = interp1([comb_st.zTop(can), comb_st.zBot(can)], ... 
+                   [comb_st.dTop(can), comb_st.dBotm(can)], ... 
+                   hCog)- 2*comb_st.Thick(can);
+   
+               
+    A = pi.*(Dout.^2)./4 - pi.*(Din.^2)./4;
+    
+end
