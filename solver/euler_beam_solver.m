@@ -10,8 +10,8 @@ A = results.A;
 
 [~, lumped_node] = min(abs(H - X_offset));
 % Compute the DOFs associated with the node
-node_dof = 2 * lumped_node - 1; % Displacement DOF
-rotation_dof = 2 * lumped_node; % Rotation DOF
+node_disp_dof = 2 * lumped_node - 1; % Displacement DOF
+node_rotation_dof = 2 * lumped_node; % Rotation DOF
 
 
 n_segments = length(H) - 1;
@@ -46,17 +46,17 @@ end
 
 if b_TopMass
     % adding the lumped mass and MMI
-    M_global(node_dof, node_dof) = M_global(node_dof, node_dof) + M_lump;
+    M_global(node_disp_dof, node_disp_dof) = M_global(node_disp_dof, node_disp_dof) + M_lump;
     % Update rotational inertia contributions
-    M_global(rotation_dof, rotation_dof) = M_global(rotation_dof, rotation_dof) + I_lump(1);
+    M_global(node_rotation_dof, node_rotation_dof) = M_global(node_rotation_dof, node_rotation_dof) + I_lump(1);
     % Include Coupling Effects from Mass Offset (Rotational Contributions)
     % The offset creates additional moment contributions due to mass inertia coupling
     % These terms arise from m*r^2 effects in the rotational equations
-    M_global(rotation_dof, rotation_dof) = M_global(node_rot_dof, node_rot_dof) + M_lump * (Y_offset^2 + Z_offset^2);
+    M_global(node_rotation_dof, node_rotation_dof) = M_global(node_rotation_dof, node_rotation_dof) + M_lump * (Y_offset^2 + Z_offset^2);
 
     % Cross coupling terms: Offset creates interaction between rotation and displacement DOFs
-    M_global(node_dof, rotation_dof) = M_global(node_disp_dof, node_rot_dof) - M_lump * Y_offset;
-    M_global(rotation_dof, node_dof) = M_global(node_rot_dof, node_disp_dof) - M_lump * Y_offset;
+    M_global(node_disp_dof, node_rotation_dof) = M_global(node_disp_dof, node_rotation_dof) - M_lump * Y_offset;
+    M_global(node_rotation_dof, node_disp_dof) = M_global(node_rotation_dof, node_disp_dof) - M_lump * Y_offset;
 end
 
 
