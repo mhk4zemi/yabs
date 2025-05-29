@@ -27,7 +27,7 @@ git clone https://github.com/mhk4zemi/yabs.git
 To run this code you will need a `Matlab` with a version `2018b` or above. 
 simply run `main.m`. 
 
-You can controll all the inputs through the `Inputs.csv` file. Feel free to modify any of the paramters set in various tables in that file. 
+You can control all the inputs through the `Inputs.csv` file. Feel free to modify any of the paramters set in various tables in that file. 
 
 # Planned to be released:
 - [ ] Introduce geometrical softening.
