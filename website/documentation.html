@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Yet Another Beam Solver</title>
+    <style>
+        body {
+            background-color: #0a0f2b;
+            color: #00eaff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 50px;
+            text-shadow: 0 0 10px #00eaff;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin: 30px 0;
+            text-shadow: 0 0 8px #00eaff;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 2px solid #00eaff;
+            box-shadow: 0 0 15px #00eaff;
+        }
+        a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #00eaff;
+            text-shadow: 0 0 5px #00eaff;
+        }
+        .container {
+            padding: 50px;
+        }
+        /* Wind Turbine Animation */
+        .wind-turbine-container {
+            margin: 40px auto;
+            width: 150px;
+            height: 200px;
+            position: relative;
+        }
+        .wind-turbine-tower {
+            width: 10px;
+            height: 120px;
+            background-color: #00eaff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px #00eaff;
+        }
+        .wind-turbine-blades {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: spin 10s linear infinite;
+        }
+        .wind-turbine-blades::before,
+        .wind-turbine-blades::after,
+        .wind-turbine-blades span {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 10px;
+            background-color: #00eaff;
+            box-shadow: 0 0 10px #00eaff;
+        }
+        .wind-turbine-blades::before {
+            transform: rotate(0deg);
+            top: 45px;
+            left: 0;
+        }
+        .wind-turbine-blades::after {
+            transform: rotate(120deg);
+            top: 45px;
+            left: 0;
+        }
+        .wind-turbine-blades span {
+            transform: rotate(240deg);
+            top: 45px;
+            left: 0;
+        }
+        .wind-turbine-base {
+            width: 40px;
+            height: 20px;
+            background-color: #00eaff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px #00eaff;
+            border-radius: 5px;
+        }
+        @keyframes spin {
+            from {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            to {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentation</h1>
+        <a href="../index.html">Back to Home</a>
+
+        <h2>Overview of Features</h2>
+        <p>The repository provides a variety of engineering models, focusing on structural analysis and dynamics. One of the key features is the beam solver, which allows users to model and analyze beams under various conditions. The solver supports both accurate and rough beam descriptions, as shown in the diagram below.</p>
+        
+        <img src="./Engineering_model.jpg" alt="Beam Model Diagram">
+
+        <p>The diagram illustrates a beam model with the following components:</p>
+        <ul style="text-align: left; max-width: 600px; margin: 0 auto; font-size: 1.1em;">
+            <li><strong>Top Mass and Mass Moment of Inertia:</strong> This represents the mass at the top of the beam and its rotational inertia, which are critical for dynamic analysis.</li>
+            <li><strong>Accurate/Rough Beam Description:</strong> Users can choose between a detailed, accurate beam model or a simplified, rough approximation depending on their needs.</li>
+            <li><strong>Clamped or Soil Springs:</strong> The base of the beam can be modeled as either clamped (fixed) or supported by soil springs, which simulate the ground's flexibility.</li>
+            <li><strong>Wind Turbine Model:</strong> The repository also includes models for wind turbines, which can be analyzed for structural integrity and dynamic response.</li>
+        </ul>
+
+        <p>Explore the repository to find more models and contribute your own ideas to enhance the collection!</p>
+    </div>
+</body>
+</html>
