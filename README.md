@@ -1,5 +1,6 @@
 # YABS
 Yet Another Beam Solver - This toolbox helps you getting an estimatation of the beam structure natural frequencies , given various environmental boundary conditions 
+![image](https://github.com/user-attachments/assets/7147b24b-71e9-4a33-a7a5-40ac57d69186)
 
 
 # What can you do with this ? 
