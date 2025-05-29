@@ -1,4 +1,4 @@
-function visualize_structure(comb_st, b_TopMass, b_Clamp)
+function visualize_structure(comb_st, b_TopMass,L_soil,Dout, b_Clamp)
     figure();
     hold on
     
@@ -18,11 +18,12 @@ function visualize_structure(comb_st, b_TopMass, b_Clamp)
         % ToDo visually show clamped state.
     else
         sss = linspace(0,L_soil,10);
+        hold on
         for i=1:length(sss)
             add_spring(1, sss(i),Dout/2);
         end
         xlim([-5 10])
-        ylim([-5 max(results.Hresults.H)*1.2])
+        ylim([-5 max(comb_st.zBot)*1.2])
     end
     
     % Top mass
