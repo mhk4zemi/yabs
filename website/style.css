@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background: #1a1a1a; /* Dark theme background */
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind everything */
+}
+
+/* Wind Turbine Rotor Styles */
+.wind-turbine {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px; /* Large size for a close-up effect */
+    height: 1200px;
+    z-index: 0; /* Above particles, below content */
+    opacity: 0.3; /* Slightly faded for background effect */
+}
+
+.rotor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: rotate 20s linear infinite; /* Continuous rotation, 20s per full rotation */
+}
+/* Inside the .wind-turbine styles, add this after .rotor */
+.hub {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	background: radial-gradient(circle, #00ccff, #003366); /* Futuristic hub gradient */
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 15px rgba(0, 204, 255, 0.7); /* Glowing effect */
+}
+
+.blade {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%; /* Blade length is half the rotor's width */
+    height: 20px; /* Blade thickness */
+    background: linear-gradient(to right, rgba(0, 204, 255, 0.2), rgba(0, 204, 255, 0.8)); /* Futuristic gradient */
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); /* Glowing effect */
+    border-radius: 10px; /* Rounded edges for a sleek look */
+    transform-origin: left center; /* Rotate around the left edge (center of the rotor) */
+}
+
+/* Position the blades at 120-degree intervals */
+.blade:nth-child(1) {
+    transform: rotate(0deg) translateX(0);
+}
+
+.blade:nth-child(2) {
+    transform: rotate(120deg) translateX(0);
+}
+
+.blade:nth-child(3) {
+    transform: rotate(240deg) translateX(0);
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+    z-index: 1; /* Above rotor and particles */
+    position: relative;
+}
+
+/* Profile Picture Styles */
+.profile-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%; /* Circular image */
+    border: 3px solid #00ccff; /* Border color matches theme */
+    object-fit: cover; /* Ensure image fits nicely */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #00ccff;
+    margin-top: 160px; /* Add margin to avoid overlap with the image */
+}
+
+.cv-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.cv-content p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.cv-content strong {
+    color: #00ccff;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #00ccff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0.5rem; /* Add spacing between buttons */
+}
+
+button:hover {
+    background: #0099cc;
+}
+
+#gameContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 2; /* Above rotor */
+}
+
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    background: #000;
+}
+
+/* Contact Form Styles */
+#contactFormContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* Above everything */
+}
+
+.contact-form {
+    background: rgba(0, 0, 0, 0.7); /* Transparent form background */
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.contact-form h2 {
+    color: #00ccff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    color: #ffffff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #00ccff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 48%;
+    margin: 0 1% 0 0;
+}
+
+.contact-form button:last-child {
+    margin-right: 0;
+}
+
+/* Typing cursor animation */
+#typing-text::after,
+#education-text::after,
+#languages-text::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 0.7s infinite;
+    color: #00ccff;
+}
+
+/* Blinking animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-top: 130px; /* Adjust for smaller image */
+    }
+
+    .cv-content {
+        padding: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .wind-turbine {
+        width: 400px; /* Smaller rotor on smaller screens */
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-top: 110px; /* Adjust for smaller image */
+    }
+
+    .cv-content p {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .wind-turbine {
+        width: 1200px; /* Even smaller rotor on very small screens */
+        height: 1200px;
+			}
+}
