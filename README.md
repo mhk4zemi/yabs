@@ -4,6 +4,7 @@ Yet Another Beam Solver - This toolbox helps you getting an estimation of the be
 ![image](https://github.com/user-attachments/assets/7147b24b-71e9-4a33-a7a5-40ac57d69186)
 
 
+
 # What can you do with this ? 
 
 &check; Get frequencies and mode shape of the 2D euler beam 
@@ -24,3 +25,6 @@ Yet Another Beam Solver - This toolbox helps you getting an estimation of the be
 
 # Request features ? 
 reach out to me ( mhk4zemi@gmail.com ) If you have any feature request. 
+
+# Inputs 
+Input file is a csv file , with the star table format slightly modified. The logic is re-implemented based on the repository made public in [startable-standard](https://github.com/startable/startable-standard)
